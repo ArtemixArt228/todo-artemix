@@ -27,7 +27,7 @@ export const todoSlice = createSlice({
       localStorage.setItem(TODO_LIST, JSON.stringify(state.todosList));
     },
     editTodoTask: (state, action: PayloadAction<TodoState>) => {
-      state.todosList.find((todo) =>
+      state.todosList.map((todo) =>
         todo.id === action.payload.id
           ? (todo.todoTask = action.payload.todoTask)
           : todo
@@ -43,7 +43,7 @@ export const todoSlice = createSlice({
       localStorage.setItem(TODO_LIST, JSON.stringify(state.todosList));
     },
     isTaskDone: (state, action: PayloadAction<string>) => {
-      state.todosList.find((todo) =>
+      state.todosList.map((todo) =>
         todo.id === action.payload ? (todo.done = !todo.done) : todo
       );
 

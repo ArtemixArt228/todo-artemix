@@ -4,3 +4,5 @@
 10: 00 added basic logic
 
 11: 18 added basic styles and local storage
+
+11: 36 fixed find bug
