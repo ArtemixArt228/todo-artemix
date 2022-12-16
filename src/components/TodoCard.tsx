@@ -1,7 +1,9 @@
 import React from "react";
 
-import { TodoState } from "../redux/features/todoSlice";
 import { useActions } from "../hooks/actions";
+
+import { AiFillDelete, AiFillEdit } from "react-icons/ai";
+import { useAppSelector } from "../hooks/redux";
 
 export const TodoCard = ({
   todoTask,
@@ -19,24 +21,35 @@ export const TodoCard = ({
   const { deleteTodoTask, isTaskDone } = useActions();
 
   return (
-    <div>
-      <div>
+    <div
+      className={`flex justify-between items-center mb-3 bg-fuchsia-200 p-3 rounded-xl ${
+        done && "bg-lime-200"
+      }`}
+    >
+      <div className="flex items-center gap-4">
         <input
+          className="accent-violet-700 w-6 h-6"
           type="checkbox"
           defaultChecked={done}
           onClick={() => isTaskDone(id)}
         />
         <p>{todoTask}</p>
       </div>
-      <div>
+      <div className="flex gap-2">
         <button
+          className="bg-white p-2 rounded-full"
           onClick={() => {
             setEditedTodo({ id, todoTask, done }), setIsEdit(true);
           }}
         >
-          Edit
+          <AiFillEdit />
         </button>
-        <button onClick={() => deleteTodoTask(id)}>Delete</button>
+        <button
+          className="bg-white p-2 rounded-full"
+          onClick={() => deleteTodoTask(id)}
+        >
+          <AiFillDelete />
+        </button>
       </div>
     </div>
   );

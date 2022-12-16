@@ -7,6 +7,8 @@ import { useAppSelector } from "./hooks/redux";
 
 import { TodoState } from "./redux/features/todoSlice";
 
+import "./App.css";
+
 export const App = () => {
   const [editedTodo, setEditedTodo] = useState<TodoState>({} as TodoState);
   const [isEdit, setIsEdit] = useState(false);
@@ -15,6 +17,7 @@ export const App = () => {
 
   return (
     <div className="max-w-[1200px] m-auto p-5">
+      <h1 className="text-4xl text-red-300 mb-4">TO DO({todosList.length})</h1>
       <div className="w-[60%] m-auto">
         <CreateInput
           editedTodo={editedTodo}
@@ -22,7 +25,7 @@ export const App = () => {
           isEdit={isEdit}
           setIsEdit={setIsEdit}
         />
-        <div>
+        <div className="mt-4 h-[75vh] overflow-hidden overflow-y-scroll">
           {todosList.map((todo) => (
             <TodoCard
               key={todo.id}
