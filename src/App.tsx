@@ -18,7 +18,7 @@ export const App = () => {
   return (
     <div className="max-w-[1200px] m-auto p-5">
       <h1 className="text-4xl text-red-300 mb-4">TO DO({todosList.length})</h1>
-      <div className="w-[60%] m-auto">
+      <div className="w-[60%] m-auto max-[750px]:w-full">
         <CreateInput
           editedTodo={editedTodo}
           setEditedTodo={setEditedTodo}

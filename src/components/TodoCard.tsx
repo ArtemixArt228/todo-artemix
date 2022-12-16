@@ -26,16 +26,16 @@ export const TodoCard = ({
         done && "bg-lime-200"
       }`}
     >
-      <div className="flex items-center gap-4">
+      <div className="flex items-center gap-4 max-[750px]:gap-2">
         <input
           className="accent-violet-700 w-6 h-6"
           type="checkbox"
           defaultChecked={done}
           onClick={() => isTaskDone(id)}
         />
-        <p>{todoTask}</p>
+        <p className="w-[200px]">{todoTask}</p>
       </div>
-      <div className="flex gap-2">
+      <div className="flex gap-2 max-[750px]:flex-col">
         <button
           className="bg-white p-2 rounded-full"
           onClick={() => {
